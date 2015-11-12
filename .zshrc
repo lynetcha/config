@@ -51,11 +51,12 @@ plugins=(git)
 
 # User configuration
 
-export PATH="/Users/chrischoy/anaconda/bin:/usr/local/bin:/Users/chrischoy/anaconda/bin:/opt/local/bin:/opt/local/sbin:/opt/local/bin:/opt/local/sbin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/bin:/opt/local/bin:/opt/local/sbin:/usr/local/cuda/bin:/opt/X11/bin:/usr/texbin:/usr/local/cuda/bin:/Users/chrischoy/.rvm/bin"
+export PATH="/Users/chrischoy/anaconda/bin:/opt/local/bin:/opt/local/sbin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/usr/local/cuda/bin:/opt/X11/bin:/usr/texbin:/Users/chrischoy/.rvm/bin"
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
 
+source ~/.bash_profile
 # You may need to manually set your language environment
 # export LANG=en_US.UTF-8
 
@@ -80,3 +81,10 @@ source $ZSH/oh-my-zsh.sh
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
+export TEX_PATH=/usr/local/texlive/2015/bin/x86_64-darwin
+export PATH=$TEX_PATH:$PATH  # Added automatically by torch-dist
+
+export PATH=/Users/chrischoy/torch/install/bin:$PATH  # Added automatically by torch-dist
+export LD_LIBRARY_PATH=/Users/chrischoy/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
+export DYLD_LIBRARY_PATH=/Users/chrischoy/torch/install/lib:$DYLD_LIBRARY_PATH  # Added automatically by torch-dist
