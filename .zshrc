@@ -88,3 +88,6 @@ export PATH=$TEX_PATH:$PATH  # Added automatically by torch-dist
 export PATH=/Users/chrischoy/torch/install/bin:$PATH  # Added automatically by torch-dist
 export LD_LIBRARY_PATH=/Users/chrischoy/torch/install/lib:$LD_LIBRARY_PATH  # Added automatically by torch-dist
 export DYLD_LIBRARY_PATH=/Users/chrischoy/torch/install/lib:$DYLD_LIBRARY_PATH  # Added automatically by torch-dist
+export TERM=xterm-256color
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
