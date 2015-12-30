@@ -79,17 +79,20 @@ Plug 'xolox/vim-easytags'
 " Grammar check
 Plug 'vim-scripts/LanguageTool'
 
+" Tmux line
+Plug 'edkolev/tmuxline.vim'
+
 " Realtime collaborative editing
 " Plugin 'floobits/floobits-neovim'
 
 call plug#end()
 
-
 """""""""""""""""""""""""""""""""""
 " Visual setting
 """""""""""""""""""""""""""""""""""
 " colorscheme zenburn  " very comfortable font colors
-colorscheme molokai  " very strong font colors
+" colorscheme molokai  " very strong font colors
+colorscheme Tomorrow-Night
 let g:airline_theme='dark'
 
 " Set 80 line limit a colorcolumn
@@ -105,13 +108,25 @@ endif
 let mapleader=","
 nnoremap <C-e> :NERDTreeToggle<CR>
 nnoremap <Leader>u :UndotreeToggle<cr>
+" Stupid work around
+" https://github.com/neovim/neovim/issues/2048#issuecomment-78534227
+if has('nvim')
+    nmap <BS> :TmuxNavigateLeft<CR>
+endif
 
 """""""""""""""""""""""""""""""""""
 " Editor setting
 """""""""""""""""""""""""""""""""""
+set clipboard=unnamedplus
+
 " set listchars=eol:¬,tab:>·,trail:~,extends:>,precedes:<,space:␣
-set listchars=eol:¬,tab:>·,trail:•,extends:>,precedes:<
+set listchars=tab:>·,trail:•,extends:>,precedes:<
 set list
+
+" Tab to spaces
+set tabstop=2
+set shiftwidth=2
+set expandtab
 
 " Switch buffers in vim without saving to a currently modified file
 set hidden
