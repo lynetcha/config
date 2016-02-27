@@ -18,6 +18,9 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
+" YouCompleteMe
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py' }
+
 " Plugin options
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
@@ -175,3 +178,6 @@ let g:Tex_CompileRule_pdf = 'pdflatex --synctex=-1 -src-specials -interaction=no
 let g:Tex_DefaultTargetFormat='pdf'
 let g:Tex_MultipleCompileFormats='pdf'
 let g:Tex_ViewRule_pdf =  'okular'
+
+" No latex conceal
+set conceallevel=0

@@ -15,7 +15,7 @@ fi
 
 # OSG and Collada library
 export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib64
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/colladadom/
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/opencollada
 
 
 # Include Anaconda library libhdf5_hl
@@ -24,12 +24,7 @@ export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/usr/local/lib/colladadom/
 # Add CAFFE_ROOT to PATH
 export PATH=${CAFFE_ROOT}/build/tools/:$PATH
 # COLLADA_DIR 
-export COLLADA_DIR=/usr/local/include/colladadom 
-
-# Torch
-# export PATH=/afs/cs.stanford.edu/u/chrischoy/torch-distro/install/bin:$PATH
-# export LD_LIBRARY_PATH=/afs/cs.stanford.edu/u/chrischoy/torch-distro/install/lib:$LD_LIBRARY_PATH
-# export DYLD_LIBRARY_PATH=/afs/cs.stanford.edu/u/chrischoy/torch-distro/install/lib:$DYLD_LIBRARY_PATH
+export COLLADA_DIR=/usr/local/include/opencollada
 
 # Find out host name
 HOSTNAME=$(hostname)
@@ -37,28 +32,31 @@ HOSTNAME=$(hostname)
 # PYTHONPATH to be Anaconda
 export PYTHONPATH=/home/chrischoy/anaconda/
 export PYTHON3PATH=/home/chrischoy/anaconda3/
-export CUDNN_PATH=/home/chrischoy/package/cuDNN/
 
 if [[ $HOSTNAME == "napoli"* ]]; then
-  export PYTHONPATH=/scratch/chrischoy/anaconda/
-  export CUDNN_PATH=/scratch/chrischoy/cuDNN/
+  # echo 'On a napoli cluser' scp don't work if echo
+  # export PYTHONPATH=/scratch/chrischoy/anaconda/
   export CAFFE_ROOT=/scratch/chrischoy/caffe/
   export LD_LIBRARY_PATH=/scratch/chrischoy/lib/:$LD_LIBRARY_PATH
   export PATH=${CAFFE_ROOT}bin/:$PATH
+else
+  # Torch
+  export CUDNN_PATH=/home/chrischoy/package/cuDNN/
+  source /home/chrischoy/package/torch/install/bin/torch-activate
+  export CPATH=${CUDNN_PATH}
+  export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64:${CUDNN_PATH}
 fi
 
 # Anaconda Path
 export PATH=${PYTHONPATH}bin:$PATH
 # export PATH=${PYTHON3PATH}bin:$PATH  # before using python3, remove pythonpath
 
-export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:${CUDA_HOME}/lib64:${CUDNN_PATH}
 
 # CAFFE ROOT
-export CAFFE_ROOT=/home/chrischoy/package/caffe-3de
+# export CAFFE_ROOT=/home/chrischoy/package/caffe-3de
 # export PYTHONPATH=$PYTHONPATH:${CAFFE_ROOT}/python
 
 export LIBRARY_PATH=$LD_LIBRARY_PATH
-export CPATH=${CUDNN_PATH}
 
 if [[ $- =~ "i" ]]; then 
   # Running Reauth if not inside tmux
