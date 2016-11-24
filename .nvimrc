@@ -15,6 +15,9 @@ Plug 'junegunn/vim-easy-align'
 Plug 'scrooloose/nerdtree', { 'on':  'NERDTreeToggle' }
 Plug 'tpope/vim-fireplace', { 'for': 'clojure' }
 
+" Vim templates
+Plug 'lynetcha/vimtemplates'
+
 " Using git URL
 Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 
@@ -116,6 +119,11 @@ call plug#end()
 " colorsbox-greenish
 colorscheme Benokai
 let g:airline_theme='dark'
+
+" Vim templates Settings
+let g:VIMFILESDIR="~/.vim/"
+let g:author="Lyne P. Tchapmi"
+let g:DoxygenToolkit_authorName=g:author
 
 " Set 100 line limit a colorcolumn
 if exists('+colorcolumn')
@@ -231,7 +239,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Set python interpreter
-let g:python_host_prog = '/home/ma/cchoy/anaconda/bin/python'
+let g:python_host_prog = '/usr/bin/python'
 
 " Set python3 interpreter
 " let g:python3_host_prog = '/usr/bin/python3'
