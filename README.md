@@ -4,7 +4,7 @@ Personal configuration files for [<img src="https://neovim.io/images/logo@2x.png
 
 ## Installation
 
-For fresh installation, use [https://github.com/chrischoy/env-setting](https://github.com/chrischoy/env-setting)
+For fresh installation, use [https://github.com/lynetcha/env-setup](https://github.com/lynetcha/env-setup)
 
 Otherwise,
 
