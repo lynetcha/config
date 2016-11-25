@@ -274,3 +274,12 @@ let g:NERDTreeIndicatorMapCustom = {
 
 " Spelling
 set spell spelllang=en_us
+
+" Disable Pydoc automatic window pop-up
+set completeopt=menu
+
+" Resize window  SHIFT+(h|j|k|l)                                                                      
+noremap <S-j> :resize +6<CR>                                                                        
+noremap <S-k> :resize -6<CR>                                                                        
+noremap <S-h> :vertical resize -6<CR>                                                               
+noremap <S-l> :vertical resize +6<CR>  
