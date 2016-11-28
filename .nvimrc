@@ -204,6 +204,8 @@ map <Leader>a <Plug>IMAP_JumpForward<CR>
 " Remove all Ctrl-M
 map <Leader>m :%s/\r//g<CR>
 
+" Insert Space
+nnoremap <space> a<space><esc>
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Editor setting
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
