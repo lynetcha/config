@@ -24,6 +24,18 @@ Plug 'https://github.com/junegunn/vim-github-dashboard.git'
 " Using a non-master branch
 Plug 'rdnetto/YCM-Generator', { 'branch': 'stable' }
 
+"  YCM
+function! BuildYCM(info)
+  " info is a dictionary with 3 fields
+  " - name:   name of the plugin
+  " - status: 'installed', 'updated', or 'unchanged'
+  " - force:  set on PlugInstall! or PlugUpdate!
+  if a:info.status == 'installed' || a:info.force
+    !./install.py
+  endif
+endfunction
+Plug 'Valloric/YouCompleteMe', { 'do': function('BuildYCM') }
+
 " Plugin options
 Plug 'nsf/gocode', { 'tag': 'v.20150303', 'rtp': 'vim' }
 
@@ -239,7 +251,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Set python interpreter
-let g:python_host_prog = '/usr/bin/python'
+let g:python_host_prog = '/scr/lynetcha/programs/anaconda/bin/python' "'/usr/bin/python'
 
 " Set python3 interpreter
 " let g:python3_host_prog = '/usr/bin/python3'
@@ -283,3 +295,4 @@ noremap <S-j> :resize +6<CR>
 noremap <S-k> :resize -6<CR>                                                                        
 noremap <S-h> :vertical resize -6<CR>                                                               
 noremap <S-l> :vertical resize +6<CR>  
+
