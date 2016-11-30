@@ -129,8 +129,16 @@ call plug#end()
 " colorscheme molokai  " very strong font colors
 " Chasing_Logic, 1989, Revolution. blackboard, 256-grayvim, Benokai,
 " colorsbox-greenish
+" colorscheme SlateDark
 colorscheme Benokai
 let g:airline_theme='dark'
+
+" Pymode settings
+" Turn on code checking on every save
+let g:pymode_lint_unmodified = 1
+
+" Gitgutter settings
+let g:gitgutter_max_signs=2000
 
 " Vim templates Settings
 let g:VIMFILESDIR="~/.vim/"
