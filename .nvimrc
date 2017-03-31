@@ -136,6 +136,8 @@ let g:airline_theme='dark'
 " Pymode settings
 " Turn on code checking on every save
 let g:pymode_lint_unmodified = 1
+let g:pymode_lint_ignore="F999,E501,E261,C901,E262,E401,E228,E303,E201,E222,E271,E127,E221,E202,E203,W391,W191,E101,E126,F403,E128,E225,F405,E226,E302,E41,E231,W503,E265"
+
 
 " Gitgutter settings
 let g:gitgutter_max_signs=2000
@@ -261,7 +263,7 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Set python interpreter
-let g:python_host_prog = '/scr/lynetcha/programs/anaconda/bin/python' "'/usr/bin/python'
+let g:python_host_prog = '/cvgl/u/lynetcha/programs/python/py3.6/bin/python3.6'
 
 " Set python3 interpreter
 " let g:python3_host_prog = '/usr/bin/python3'
