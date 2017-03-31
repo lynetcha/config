@@ -89,7 +89,7 @@ Plug 'godlygeek/tabular'
 Plug 'xolox/vim-misc'
 
 " Tag generation
-Plug 'xolox/vim-easytags'
+"Plug 'xolox/vim-easytags'
 
 " Grammar check
 Plug 'vim-scripts/LanguageTool'
