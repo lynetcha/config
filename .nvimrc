@@ -120,6 +120,20 @@ Plug 'google/vim-codefmt'
 " `:help :Glaive` for usage.
 Plug 'google/vim-glaive'
 
+
+" Vim Markdown Composer 
+function! BuildComposer(info)
+  if a:info.status != 'unchanged' || a:info.force
+    if has('nvim')
+      !cargo build --release
+    else
+      !cargo build --release --no-default-features --features json-rpc
+    endif
+  endif
+endfunction
+
+"Plug 'euclio/vim-markdown-composer', { 'do': function('BuildComposer') }
+
 call plug#end()
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
@@ -136,8 +150,10 @@ let g:airline_theme='dark'
 " Pymode settings
 " Turn on code checking on every save
 let g:pymode_lint_unmodified = 1
-let g:pymode_lint_ignore="F999,E501,E261,C901,E262,E401,E228,E303,E201,E222,E271,E127,E221,E202,E203,W391,W191,E101,E126,F403,E128,E225,F405,E226,E302,E41,E231,W503,E265"
-
+let g:pymode_lint_ignore="F999,E501,E261,C901,E262,E401,E228,E303,E201,E222,E271,E127,E221,E202,E203,W391,W191,E101,E126,F403,E128,E225,F405,E226,E302,E41,E231,W503,E265,E702"
+let g:pymode_rope_lookup_project = 0
+let g:pymode_rope_autoimport = 0
+let g:pymode_rope=0
 
 " Gitgutter settings
 let g:gitgutter_max_signs=2000
@@ -263,7 +279,8 @@ let g:airline#extensions#tabline#enabled = 1
 let g:airline_powerline_fonts = 1
 
 " Set python interpreter
-let g:python_host_prog = '/cvgl/u/lynetcha/programs/python/py3.6/bin/python3.6'
+"let g:python_host_prog = '/cvgl/u/lynetcha/programs/python/py3.6/bin/python3.6'
+let g:python_host_prog = '/usr/bin/python'
 
 " Set python3 interpreter
 " let g:python3_host_prog = '/usr/bin/python3'
@@ -280,6 +297,10 @@ let g:EasyMotion_smartcase = 1
 
 " LaTeX conceallevel
 set conceallevel=0
+
+" codefmt
+call glaive#Install()
+Glaive codefmt clang_format_executable='/usr/bin/clang-format-3.9'
 
 """""""""""""""""""""""""""""""""""
 " NerdTree Git
